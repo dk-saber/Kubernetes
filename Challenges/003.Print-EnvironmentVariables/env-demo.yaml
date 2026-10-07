@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: env-demo
+spec:
+  restartPolicy: Never
+  containers:
+    - name: demo-container
+      image: bash:latest
+      command: ["/bin/sh", "-c", 'echo "$(GREETING) $(APP_NAME) $(DEPARTMENT)"']
+      env:
+        - name: GREETING
+          value: "Hello from"
+        - name: APP_NAME
+          value: "Acme"
+        - name: DEPARTMENT
+          value: "Engineering"
